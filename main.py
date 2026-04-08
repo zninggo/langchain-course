@@ -7,6 +7,7 @@ from langchain_core.messages import HumanMessage
 from langchain_ollama import ChatOllama
 from langchain_openai import ChatOpenAI
 from tavily import TavilyClient
+from langchain_tavily import TavilySearch
 
 load_dotenv(".env", override=True)
 print("Loading Environment Variables...")
@@ -15,7 +16,7 @@ print("Loading Environment Variables...")
 @tool
 def network_search(query: str) -> str | dict:
     """
-    这是一个网络搜索的工具
+    这是一个自定义的网络搜索工具
     args:
         query: 要搜索的字符串
     returns:
@@ -56,7 +57,7 @@ def openai_llm() -> ChatOpenAI:
 # llm = ChatOllama(temperature=0, model="gemma-4-E4B-it-GGUF:Q4_K_M")
 # print("ollama启动完毕...")
 
-tools = [network_search]
+tools = [TavilySearch()]
 
 
 def main():
@@ -65,7 +66,13 @@ def main():
     llm = openai_llm()
 
     agent = create_agent(llm, tools=tools)
-    response = agent.invoke({"messages": HumanMessage("深圳的天气怎么样?")})
+    response = agent.invoke(
+        {
+            "messages": HumanMessage(
+                "我想要在领英上搜索三条关于ai agent 应用工程师的岗位要求与 langchain 有关并列出相关的详细信息"
+            )
+        }
+    )
     print(response.get("messages")[-1].content)
 
 
