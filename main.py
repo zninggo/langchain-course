@@ -6,6 +6,7 @@ from langchain_ollama import ChatOllama
 from langchain_openai import ChatOpenAI
 
 load_dotenv(override=True)
+print(f"api_key 加载完成...")
 
 information = """
     Elon Reeve Musk FRS (/ˈiːlɒn/ EE-lon; born June 28, 1971) is a businessman, known for his leadership of Tesla, SpaceX, X (formerly Twitter), and the Department of Government Efficiency (DOGE). Musk has been the wealthiest person in the world since 2021; as of May 2025, Forbes estimates his net worth to be US$424.7 billion.
@@ -28,10 +29,13 @@ summary_template = """
 
 
 def ollama_llm() -> ChatOllama:
-    return ChatOllama(
+    print("开始启动ollama...")
+    ollama = ChatOllama(
         model="gemma-4-E4B-it-GGUF:Q4_K_M",
         temperature=0,
     )
+    print("ollama启动成功...")
+    return ollama
 
 
 def openai_llm() -> ChatOpenAI:
@@ -49,7 +53,8 @@ def openai_llm() -> ChatOpenAI:
 def main():
     print("Hello from langchain-course! app starting...")
 
-    llm = openai_llm()
+    # llm = openai_llm()
+    llm = ollama_llm()
 
     summary_prompt_template = PromptTemplate(
         input_variables=["information"],
