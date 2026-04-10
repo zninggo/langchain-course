@@ -1,4 +1,5 @@
 import os
+from typing import List
 
 from dotenv import load_dotenv
 from langchain.agents import create_agent
@@ -6,11 +7,27 @@ from langchain.tools import tool
 from langchain_core.messages import HumanMessage
 from langchain_ollama import ChatOllama
 from langchain_openai import ChatOpenAI
-from tavily import TavilyClient
 from langchain_tavily import TavilySearch
+from pydantic import BaseModel, Field
+from tavily import TavilyClient
 
 load_dotenv(".env", override=True)
 print("Loading Environment Variables...")
+
+
+class Source(BaseModel):
+    """agent 结构化回复使用的来源 url"""
+
+    url: str = Field(description="回答的来源 url")
+
+
+class AgentResponse(BaseModel):
+    """ agent 的结构化回复内容和对应的来源 url"""
+
+    answer: str = Field(description="agent 回答的内容")
+    sources: List[Source] = Field(
+        default_factory=list, description="用于生成答案的来源列表"
+    )
 
 
 @tool
@@ -47,7 +64,8 @@ def openai_llm() -> ChatOpenAI:
     base_url = os.getenv("OPENAI_BASE_URL")
 
     return ChatOpenAI(
-        model="openai/gpt-oss-120b",
+        # model="openai/gpt-oss-120b",
+        model="gpt-5.4",
         temperature=0,
         base_url=base_url,
         api_key=api_key,
@@ -65,7 +83,7 @@ def main():
 
     llm = openai_llm()
 
-    agent = create_agent(llm, tools=tools)
+    agent = create_agent(llm, tools=tools, response_format=AgentResponse)
     response = agent.invoke(
         {
             "messages": HumanMessage(
@@ -73,7 +91,9 @@ def main():
             )
         }
     )
-    print(response.get("messages")[-1].content)
+    print(response)
+    print(response["structured_response"])
+    # print(response.get("messages")[-1].content)
 
 
 if __name__ == "__main__":
