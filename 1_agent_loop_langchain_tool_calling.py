@@ -88,7 +88,7 @@ def run_agent(question: str):
 
         # 没有工具调用了返回 content
         if not llm_msg.tool_calls:
-            print(f'\t>> 已经没有再调用tool了 返回最终结果~')
+            print(f"\t>> 已经没有再调用tool了 返回最终结果~")
             return llm_msg.content
 
         use_tool = llm_msg.tool_calls[0]
@@ -109,8 +109,9 @@ def run_agent(question: str):
 
         messages.append(ToolMessage(content=str(tool_result), tool_call_id=tool_id))
 
-    print(f'\t>> 达到了agent loop最大 {MAX_ITERATIONS} 次数')
+    print(f"\t>> 达到了agent loop最大 {MAX_ITERATIONS} 次数")
     return None
+
 
 """
 “你是一位乐于助人的购物助理。”
@@ -133,4 +134,4 @@ if __name__ == "__main__":
     print(f"hello agent loop!", end="\n\n")
 
     result = run_agent("笔记本黄金折扣的电脑价格是多少?")
-    print(f'llm 的回答是: {result}')
+    print(f"llm 的回答是: {result}")
