@@ -86,7 +86,7 @@ ollama_tools = [
 
 
 def ollama_chat(messages):
-    return ollama.chat(model=MODEL_NAME, tools=ollama_tools, messages=messages, think=True)
+    return ollama.chat(model=MODEL_NAME, tools=ollama_tools, messages=messages, think=True, options={'temperature': 0})
 
 
 # --------agent loop------------
