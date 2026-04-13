@@ -21,16 +21,14 @@ if __name__ == "__main__":
         chunk_overlap=0,
     )
 
-    print('create text_spliter')
+    print("create text_spliter")
 
     chunks = text_spliter.split_documents(document)
-    print(f'分块长度{len(chunks)}')
+    print(f"分块长度{len(chunks)}")
 
     # bge-m3:latest 是1024的向量维度
-    embeddings = OllamaEmbeddings(
-        model='bge-m3:latest'
-    )
-    print('创建ollama嵌入模型')
+    embeddings = OllamaEmbeddings(model="bge-m3:latest")
+    print("创建ollama嵌入模型")
 
     # 要花钱 放弃
     # embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
@@ -46,4 +44,4 @@ if __name__ == "__main__":
     vector_store.add_documents(chunks)
     print(vector_store)
 
-    print('finish')
+    print("finish")
