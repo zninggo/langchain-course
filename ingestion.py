@@ -35,7 +35,15 @@ if __name__ == "__main__":
     # 要花钱 放弃
     # embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
 
-    PineconeVectorStore.from_documents(
-        documents=chunks, embedding=embeddings, index_name=os.getenv("INDEX_NAME")
+    # PineconeVectorStore.from_documents(
+    #     documents=chunks, embedding=embeddings, index_name=os.getenv("INDEX_NAME")
+    # )
+
+    vector_store = PineconeVectorStore(
+        index_name=os.getenv("INDEX_NAME"),
+        embedding=embeddings,
     )
+    vector_store.add_documents(chunks)
+    print(vector_store)
+
     print('finish')
