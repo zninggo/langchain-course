@@ -11,6 +11,7 @@ load_dotenv(override=True)
 # for key, val in os.environ.items():
 #     print(f"{key}: {val}")
 
+# https://github.com/emarco177/langchain-course/blob/project/rag-gist/main.py
 
 if __name__ == "__main__":
     document = TextLoader("./mediumblog1.txt", encoding="utf-8").load()
