@@ -245,7 +245,7 @@
       <workItem from="1775956481355" duration="13358000" />
       <workItem from="1776078879686" duration="10750000" />
       <workItem from="1776090760690" duration="65000" />
-      <workItem from="1776165151511" duration="2652000" />
+      <workItem from="1776165151511" duration="6111000" />
     </task>
     <task id="LOCAL-00001" summary="simple example">
       <option name="closed" value="true" />
@@ -327,7 +327,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776090809915</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="no chain">
+      <option name="closed" value="true" />
+      <created>1776167971140</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1776167971140</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,7 +363,8 @@
     <MESSAGE value="pinecone add documents" />
     <MESSAGE value="format" />
     <MESSAGE value="fork source" />
-    <option name="LAST_COMMIT_MESSAGE" value="fork source" />
+    <MESSAGE value="no chain" />
+    <option name="LAST_COMMIT_MESSAGE" value="no chain" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -375,7 +384,7 @@
     <SUITE FILE_PATH="coverage/langchain_course$2_agent_loop_raw_function_calling.coverage" NAME="2_agent_loop_raw_function_calling 覆盖结果" MODIFIED="1775974728373" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/langchain_course$ingestion.coverage" NAME="ingestion 覆盖结果" MODIFIED="1776087590835" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/langchain_course$3_raw_react_prompt.coverage" NAME="3_raw_react_prompt 覆盖结果" MODIFIED="1775973909710" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/langchain_course$main.coverage" NAME="main 覆盖结果" MODIFIED="1776167410285" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/langchain_course$main.coverage" NAME="main 覆盖结果" MODIFIED="1776171043230" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/langchain_course$1_agent_loop_langchain_tool_calling.coverage" NAME="1_agent_loop_langchain_tool_calling 覆盖结果" MODIFIED="1775971774386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
